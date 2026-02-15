@@ -1599,3 +1599,91 @@ footer .container{
   color: #fff !important;
 }
 
+
+
+
+/* =========================================================
+   NAV RIBBON SMALLER + TEXT FIT IN WHITE BOXES (SITE-WIDE)
+   - Reduce menu height/padding/font
+   - Make white cards/boxes more compact + text always fits
+   ========================================================= */
+
+/* Smaller top navigation ribbon */
+nav, .navbar, .topnav{
+  padding-block: 6px !important;
+}
+nav .container, .navbar .container, .topnav .container{
+  padding-block: 0 !important;
+}
+nav a, .navbar a, .topnav a{
+  font-size: 0.95rem !important;
+  padding: 8px 10px !important;
+  border-radius: 10px !important;
+}
+/* If there is a logo/brand in nav */
+nav .logo, .navbar .logo, .topnav .logo,
+nav .brand, .navbar .brand, .topnav .brand{
+  font-size: 1.02rem !important;
+  line-height: 1.1 !important;
+}
+/* Mobile menu button */
+.menu-toggle, .nav-toggle, .hamburger{
+  padding: 8px 10px !important;
+  border-radius: 10px !important;
+}
+
+/* Reduce large gaps below nav if present */
+header, .hero, .hero-section, .banner{
+  padding-top: clamp(26px, 4.5vw, 70px) !important;
+}
+
+/* White boxes/cards: tighter + text fit */
+.card, .service-card, .fleet-card, .pricing-card, .blog-card, .panel, .trust-item{
+  padding: clamp(12px, 1.6vw, 18px) !important;
+  border-radius: 18px !important;
+}
+
+/* If some cards had big minimum heights, reduce them */
+.kpi .card{ min-height: 84px !important; }
+.trust-item{ min-height: 84px !important; }
+
+/* Text in boxes: responsive + balanced */
+.card strong, .service-card h3, .fleet-card h3, .pricing-card h3, .blog-card h3, .panel h3{
+  font-size: clamp(1.0rem, 0.95rem + 0.25vw, 1.18rem) !important;
+  line-height: 1.22 !important;
+  margin-bottom: 6px !important;
+}
+
+.card p, .card .muted,
+.service-card p, .fleet-card p, .pricing-card p, .blog-card p, .panel p,
+.trust-label, .faq-item p{
+  font-size: clamp(0.92rem, 0.89rem + 0.15vw, 1.0rem) !important;
+  line-height: 1.38 !important;
+  margin: 0 !important;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  text-wrap: balance;
+}
+
+/* Lists inside boxes: compact */
+.card ul, .panel ul{ margin: 8px 0 0 0 !important; }
+.card li, .panel li{ margin-bottom: 6px !important; }
+
+/* Make KPI/feature boxes slightly smaller visually */
+.kpi{ gap: clamp(10px, 1.6vw, 18px) !important; }
+.kpi .card{ padding: 14px 14px !important; }
+
+/* Ensure grid items don't stretch weirdly with compact cards */
+.grid > *, .cards > *, .card-grid > *,
+.services-grid > *, .fleet-grid > *, .pricing-grid > *,
+.blog-grid > *, .gallery-grid > *, .features-grid > *,
+.stats-grid > *{
+  align-self: stretch;
+}
+
+/* WhatsApp stays green */
+.whatsapp, .whatsapp-btn, .quick-whatsapp, .btn-whatsapp, a[href*="wa.me"], a[href*="whatsapp.com"]{
+  background: #25D366 !important;
+  color: #fff !important;
+}
+
