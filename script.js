@@ -338,24 +338,10 @@ Kindly confirm availability and total cost.`;
   });
 
   // Email send handler (single listener)
-  emailBtn?.addEventListener("click", () => {
-    const msg = bookingForm.dataset.msg || buildMessage();
-
-    if (isFormspreeConfigured()){
-      const emailInput = document.getElementById("bookingEmailMessage");
-      const emailForm = document.getElementById("bookingEmailForm");
-      if (emailInput && emailForm){
-        emailInput.value = msg;
-        emailForm.submit();
-      }
-      return;
-    }
-
-    // Fallback: mailto (opens user's email app)
-    const subject = "Booking Request - Kechas Agencies";
-    const mailto = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
-    window.location.href = mailto;
+  callBtn?.addEventListener("click", () => {
+    window.location.href = "tel:+254722403413";
   });
+
 })();
 
 // Premium mobile nav toggle
@@ -825,5 +811,88 @@ Details: ${data.get("q_notes") || "—"}
     ensureQuoteModal();
     setActiveNav();
     enhanceMenu();
+  });
+})();
+
+// Quick Quote modal + actions
+(function(){
+  const fab = document.getElementById("quoteFab");
+  const modal = document.getElementById("quoteModal");
+  const form = document.getElementById("quoteForm");
+  const callBtn = document.getElementById("quoteCallBtn");
+  const copyBtn = document.getElementById("quoteCopyBtn");
+
+  if (!fab || !modal || !form) return;
+
+  const open = () => {
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden","false");
+    // focus first input for accessibility
+    const first = form.querySelector("input,select,textarea,button");
+    first?.focus();
+  };
+  const close = () => {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden","true");
+    fab.focus();
+  };
+
+  fab.addEventListener("click", open);
+  modal.querySelectorAll("[data-close='quote']").forEach(el => el.addEventListener("click", close));
+  window.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("show")) close(); });
+
+  function buildQuoteText(){
+    const fd = new FormData(form);
+    const name = (fd.get("q_name")||"").toString().trim();
+    const phone = (fd.get("q_phone")||"").toString().trim();
+    const service = (fd.get("q_service")||"").toString().trim();
+    const pax = (fd.get("q_pax")||"").toString().trim();
+    const pickup = (fd.get("q_pickup")||"").toString().trim();
+    const dropoff = (fd.get("q_dropoff")||"").toString().trim();
+    const date = (fd.get("q_date")||"").toString().trim();
+    const time = (fd.get("q_time")||"").toString().trim();
+    const notes = (fd.get("q_notes")||"").toString().trim();
+
+    const lines = [
+      "Hello Kechas Agencies, I’d like a quote:",
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Service: ${service}`,
+      `Passengers: ${pax}`,
+      `Pickup: ${pickup}`,
+      `Drop-off: ${dropoff}`,
+      `Date/Time: ${date} ${time}`,
+    ];
+    if (notes) lines.push(`Notes: ${notes}`);
+    lines.push("— Sent from the Kechas website");
+    return lines.join("\n");
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = encodeURIComponent(buildQuoteText());
+    window.open(`https://wa.me/254722403413?text=${text}`, "_blank");
+    close();
+  });
+
+  callBtn?.addEventListener("click", () => {
+    window.location.href = "tel:+254722403413";
+  });
+
+
+  copyBtn?.addEventListener("click", async () => {
+    try{
+      await navigator.clipboard.writeText(buildQuoteText());
+      copyBtn.textContent = "Copied ✓";
+      setTimeout(()=> copyBtn.textContent = "Copy", 1400);
+    }catch(_){
+      // fallback
+      const ta = document.createElement("textarea");
+      ta.value = buildQuoteText();
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+    }
   });
 })();

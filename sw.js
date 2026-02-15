@@ -1,5 +1,5 @@
 /* Kechas Agencies - Service Worker */
-const CACHE = "kechas-v3";
+const CACHE = "kechas-v4";
 const CORE = [
   "./",
   "index.html",
