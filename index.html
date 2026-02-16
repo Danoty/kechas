@@ -7,7 +7,7 @@
 <meta content="light dark" name="color-scheme"/>
 <title>Kechas Agencies Ltd | Explore. Ride. Experience</title>
 <meta content="Kechas Agencies Ltd in Kisumu, Kenya. Corporate travel, airport transfers, car rental &amp; leasing, taxi services. 24/7 support." name="description"/>
-<meta content="#0b4aa2" name="theme-color"/>
+<meta content="#d40000" name="theme-color"/>
 <link href="https://danoty.github.io/kechas/" rel="canonical"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -165,48 +165,44 @@
 <div class="card" style="padding:18px">
 <div class="section-head" style="margin-bottom:10px">
 <div>
-<h2 style="margin:0">Start a Booking</h2>
-<p class="muted" style="margin:6px 0 0">Share pickup, destination, dates and passengers — we confirm fast on WhatsApp or Email.</p>
+<h2 style="margin:0">Find a Car</h2>
+<p class="muted" style="margin:6px 0 0">Avis-style search: pickup/return + dates. We confirm instantly on WhatsApp or Email.</p>
 </div>
 </div>
 <form class="booking-grid" id="bookingFormEnterprise">
 <div class="field">
-<label>Pickup Location</label>
-<input name="pickup" placeholder="e.g., Kisumu CBD / KIS Airport / Nairobi" required=""/>
+<label>COLLECT FROM</label>
+<input name="collect_from" placeholder="e.g., Kisumu Airport / Kisumu CBD / Nairobi" required=""/>
 </div>
 <div class="field">
-<label>Destination</label>
-<input name="dropoff" placeholder="e.g., Hotel / City / Park / Airport" required=""/>
+<label>RETURN TO</label>
+<input name="return_to" placeholder="Same as collection (or specify another location)" required=""/>
 </div>
 <div class="field">
-<label>Pickup Date</label>
-<input name="date" required="" type="date"/>
+<label>DATE FROM</label>
+<input name="date_from" required="" type="date"/>
 </div>
 <div class="field">
-<label>Pickup Time</label>
-<input name="time" required="" type="time"/>
+<label>DATE TO</label>
+<input name="date_to" required="" type="date"/>
 </div>
 <div class="field">
-<label>Passengers</label>
-<input name="passengers" placeholder="e.g., 1-4 / 10 / 28" required=""/>
-</div>
-<div class="field">
-<label>Vehicle Type</label>
-<select name="vehicle">
-<option>Any</option>
-<option>Saloon</option>
-<option>SUV</option>
-<option>Van</option>
-<option>Coaster / Bus</option>
-<option>VIP / Luxury</option>
+<label>DRIVER AGE</label>
+<select name="driver_age">
+<option value="over25" selected="">Driver aged over 25</option>
+<option value="under25">Driver under 25</option>
 </select>
 </div>
+<div class="field">
+<label>DISCOUNT</label>
+<input name="discount_code" placeholder="Optional: AWD / Discount code"/>
+</div>
 <div class="field full">
-<label>Special Request</label>
-<input name="message" placeholder="e.g., child seat, VIP, multi-stop, driver language..."/>
+<label>Notes (optional)</label>
+<input name="message" placeholder="Vehicle type, passengers, one-way/return, child seat, luggage, corporate invoice…"/>
 </div>
 <div class="actions">
-<button class="btn-cta" style="width:100%" type="submit">Send to WhatsApp + Email</button>
+<button class="btn-cta" style="width:100%" type="submit">FIND CARS</button>
 <p class="muted" style="margin:8px 0 0; font-size:13px">No payment online. We confirm availability and share the quote.</p>
 </div>
 </form>

@@ -381,21 +381,21 @@ Kindly confirm availability and total cost.`;
   form.addEventListener("submit", (e)=>{
     e.preventDefault();
     const data = new FormData(form);
-    const pickup = encodeURIComponent(data.get("pickup") || "");
-    const dropoff = encodeURIComponent(data.get("dropoff") || "");
-    const date = encodeURIComponent(data.get("date") || "");
-    const time = encodeURIComponent(data.get("time") || "");
-    const passengers = encodeURIComponent(data.get("passengers") || "");
-    const vehicle = encodeURIComponent(data.get("vehicle") || "Any");
+    const collectFrom = encodeURIComponent(data.get("collect_from") || "");
+    const returnTo = encodeURIComponent(data.get("return_to") || "");
+    const dateFrom = encodeURIComponent(data.get("date_from") || "");
+    const dateTo = encodeURIComponent(data.get("date_to") || "");
+    const driverAge = encodeURIComponent(data.get("driver_age") || "over25");
+    const discount = encodeURIComponent(data.get("discount_code") || "");
     const message = encodeURIComponent(data.get("message") || "");
 
     const text =
       `Hello Kechas Agencies,%0A` +
-      `Pickup: ${pickup}%0A` +
-      `Destination: ${dropoff}%0A` +
-      `Date/Time: ${date} ${time}%0A` +
-      `Passengers: ${passengers}%0A` +
-      `Vehicle: ${vehicle}%0A` +
+      `Collect from: ${collectFrom}%0A` +
+      `Return to: ${returnTo}%0A` +
+      `Dates: ${dateFrom} to ${dateTo}%0A` +
+      `Driver age: ${driverAge}%0A` +
+      (discount ? `Discount/AWD: ${discount}%0A` : "") +
       (message ? `Request: ${message}%0A` : "") +
       `Please confirm availability and share the quote.`;
 
@@ -407,11 +407,11 @@ Kindly confirm availability and total cost.`;
     const subject = encodeURIComponent("Booking Request - Kechas Agencies");
     const body =
       `Hello Kechas Agencies,%0D%0A%0D%0A` +
-      `Pickup: ${decodeURIComponent(pickup)}%0D%0A` +
-      `Destination: ${decodeURIComponent(dropoff)}%0D%0A` +
-      `Date/Time: ${decodeURIComponent(date)} ${decodeURIComponent(time)}%0D%0A` +
-      `Passengers: ${decodeURIComponent(passengers)}%0D%0A` +
-      `Vehicle: ${decodeURIComponent(vehicle)}%0D%0A` +
+      `Collect from: ${decodeURIComponent(collectFrom)}%0D%0A` +
+      `Return to: ${decodeURIComponent(returnTo)}%0D%0A` +
+      `Dates: ${decodeURIComponent(dateFrom)} to ${decodeURIComponent(dateTo)}%0D%0A` +
+      `Driver age: ${decodeURIComponent(driverAge)}%0D%0A` +
+      (decodeURIComponent(discount) ? `Discount/AWD: ${decodeURIComponent(discount)}%0D%0A` : "") +
       (decodeURIComponent(message) ? `Request: ${decodeURIComponent(message)}%0D%0A` : "") +
       `%0D%0APlease confirm availability and share the quote.%0D%0A`;
 

@@ -6,17 +6,18 @@
   --kechas-white:#ffffff;
   --whatsapp-green:#25D366;
 
-  --blue:#0b4aa2;
-  --blue2:#083a83;
-  --orange:#f57c00;
+  /* Avis-inspired palette (clean red / black / white) */
+  --blue:#d40000;   /* primary */
+  --blue2:#a80000;  /* primary dark */
+  --orange:#d40000; /* keep existing tokens mapped to primary */
   --bg:#ffffff;
-  --bg2: #eef6ff;
+  --bg2: #f6f6f6;
   --text:#0f172a;
   --muted:#64748b;
   --border:#e7eefc;
   --shadow:0 22px 60px rgba(15,23,42,.10);
   --shadow2:0 10px 30px rgba(15,23,42,.08);
-  --ring:rgba(245,124,0,.25);
+  --ring:rgba(212,0,0,.22);
   --glass:rgba(255,255,255,.72);
   --glass2:rgba(255,255,255,.58);
   --radius:26px;
@@ -41,10 +42,7 @@ body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   color:var(--text);
-  background:
-    radial-gradient(900px 320px at 12% 0%, rgba(11,74,162,.18), transparent 60%),
-    radial-gradient(900px 320px at 88% 0%, rgba(245,124,0,.16), transparent 60%),
-    linear-gradient(180deg,var(--bg),var(--bg2));
+  background: linear-gradient(180deg,var(--bg),var(--bg2));
   line-height:1.65;
 }
 
@@ -115,13 +113,13 @@ header{
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
   padding:12px 18px;border-radius:999px;
-  background:linear-gradient(135deg,var(--orange),#ff9a3d);
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
   color:#fff;font-weight:950;
   border:1px solid transparent;
-  box-shadow:0 16px 26px rgba(245,124,0,.22);
+  box-shadow:0 16px 26px rgba(212,0,0,.18);
   transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
 }
-.btn:hover{transform:translateY(-2px);box-shadow:0 22px 36px rgba(245,124,0,.26);filter:saturate(1.02)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 22px 36px rgba(212,0,0,.22);filter:saturate(1.02)}
 .btn-outline{
   background:transparent;color:var(--text);
   border-color:rgba(148,163,184,.35);
@@ -137,8 +135,8 @@ header{
   overflow:hidden;
   background:
     linear-gradient(180deg, rgba(3,10,24,.62), rgba(3,10,24,.35)),
-    radial-gradient(1200px 520px at 18% 8%, rgba(11,74,162,.45), transparent 60%),
-    radial-gradient(900px 420px at 92% 12%, rgba(245,124,0,.35), transparent 62%),
+    radial-gradient(1200px 520px at 18% 8%, rgba(212,0,0,.38), transparent 60%),
+    radial-gradient(900px 420px at 92% 12%, rgba(212,0,0,.22), transparent 62%),
     image-set(url('assets/stock/chauffeur_pickup.webp') type('image/webp'), url('assets/stock/chauffeur_pickup.jpg') type('image/jpeg'));
   background-size:cover;
   background-position:center;
@@ -157,9 +155,9 @@ header{
 .pill{
   display:inline-flex;gap:10px;align-items:center;
   padding:8px 14px;border-radius:999px;
-  background:rgba(11,74,162,.10);
+  background:rgba(212,0,0,.10);
   color:var(--blue);font-weight:950;letter-spacing:.25px;
-  border:1px solid rgba(11,74,162,.14);
+  border:1px solid rgba(212,0,0,.16);
 }
 .pill .dot{
   width:8px;height:8px;border-radius:999px;background:var(--orange);
@@ -423,7 +421,7 @@ footer{
 .site-header { position: sticky; top: 0; z-index: 9999; }
 
 .topbar {
-  background: linear-gradient(90deg, rgba(8,64,140,.98), rgba(12,90,180,.98));
+  background: linear-gradient(90deg, #0b0b0b, #161616);
   color: #fff;
   font-weight: 600;
 }
@@ -437,7 +435,7 @@ footer{
 .sep { opacity: .65; margin: 0 10px; }
 
 .nav-glass{
-  background: rgba(255,255,255,.72);
+  background: rgba(255,255,255,.90);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(20,40,80,.10);
@@ -475,17 +473,17 @@ footer{
   border-radius: 999px;
   transition: transform .15s ease, background .15s ease;
 }
-.nav-link:hover{ background: rgba(12,90,180,.10); transform: translateY(-1px); }
+.nav-link:hover{ background: rgba(212,0,0,.08); transform: translateY(-1px); }
 
 .nav-cta{ display:flex; align-items:center; }
 .btn-cta{
-  background: #ff8a00;
+  background: var(--blue);
   color:#fff;
   text-decoration:none;
   padding: 12px 18px;
   border-radius: 999px;
   font-weight: 900;
-  box-shadow: 0 14px 30px rgba(255,138,0,.25);
+  box-shadow: 0 14px 30px rgba(212,0,0,.18);
   transition: transform .15s ease, filter .15s ease;
 }
 .btn-cta:hover{ transform: translateY(-1px); filter: brightness(1.05); }
@@ -570,8 +568,8 @@ footer{
   outline:none;
 }
 .booking-grid input:focus, .booking-grid select:focus{
-  border-color: rgba(12,90,180,.55);
-  box-shadow: 0 0 0 4px rgba(12,90,180,.12);
+  border-color: rgba(212,0,0,.60);
+  box-shadow: 0 0 0 4px rgba(212,0,0,.12);
 }
 .booking-grid .actions{
   grid-column: span 2;
