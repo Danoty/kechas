@@ -1054,9 +1054,7 @@ nav a {
     color: #ffffff !important;
 }
 
-nav a:hover {
-    color: #ffcc00 !important;
-}
+nav a:hover { color: rgba(255,255,255,.92) !important; }
 
 /* Footer Colour Pop */
 footer {
@@ -1098,7 +1096,7 @@ html {
   --primary-2: #0ea5e9;          /* sky-500 */
   --teal: #14b8a6;               /* teal-500 */
   --coral: #f97316;              /* orange-500 */
-  --gold: #fbbf24;               /* amber-400 */
+  --gold: #0b1b3a;               /* amber-400 */
   --rose: #fb7185;               /* rose-400 */
 
   /* Gradients */
@@ -1168,16 +1166,16 @@ h1::after, h2::after{
 }
 
 /* Hero / header sections: rich gradient + white text */
-.hero, header, .hero-section, .banner, .page-hero{
+.hero, .hero-section, .banner, .page-hero{
   background: var(--grad-hero) !important;
   color: #fff !important;
 }
-.hero *, header *, .hero-section *, .banner *, .page-hero *{
+.hero *, .hero-section *, .banner *, .page-hero *{
   color: #fff !important;
 }
 
 /* Add subtle sparkle (not noisy) */
-.hero::before, header::before, .hero-section::before, .banner::before, .page-hero::before{
+.hero::before, .hero-section::before, .banner::before, .page-hero::before{
   content:"";
   position:absolute;
   inset:0;
@@ -1189,7 +1187,7 @@ h1::after, h2::after{
     radial-gradient(2px 2px at 35% 75%, rgba(255,255,255,.35) 40%, transparent 41%);
   opacity:.25;
 }
-.hero, header, .hero-section, .banner, .page-hero{ position:relative; overflow:hidden; }
+.hero, .hero-section, .banner, .page-hero{ position:relative; overflow:hidden; }
 
 /* Sections: alternate gentle backgrounds */
 main section:nth-of-type(odd),
@@ -1309,7 +1307,7 @@ small, .small, .meta, .muted{
    HOME BALANCE + HERO VIDEO
    =========================== */
 
-.hero, header, .hero-section, .banner, .page-hero{
+.hero, .hero-section, .banner, .page-hero{
   position: relative;
   overflow: hidden;
 }
@@ -1968,3 +1966,28 @@ body{
 
 /* If any legacy .fab rules exist, don't let them affect new buttons */
 .fab{ z-index: 9998; }
+
+
+/* === Global readability + no extra top ribbon/space === */
+html, body { margin: 0; padding: 0; }
+body { padding-top: 0 !important; }
+.site-header { margin: 0 !important; padding: 0 !important; top: 0 !important; }
+
+/* Quick Contact card: use navy text on light surfaces */
+.quick-contact-card, .quick-contact-card *{
+  color: #0b1b3a !important;
+}
+.quick-contact-card .muted{
+  color: rgba(11,27,58,.72) !important;
+}
+
+/* Avoid white text on light/white surfaces site-wide */
+.section.alt, .card, .panel, .surface, .content-box{
+  color: #0b1b3a;
+}
+.section.alt .muted, .card .muted, .panel .muted, .surface .muted, .content-box .muted{
+  color: rgba(11,27,58,.72);
+}
+
+/* Remove any legacy quote floating button (in case cache) */
+.quote-fab{ display:none !important; }
