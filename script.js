@@ -896,3 +896,41 @@ Details: ${data.get("q_notes") || "—"}
     }
   });
 })();
+
+// Hero booking form -> open WhatsApp with a structured message
+(function(){
+  const form = document.getElementById("heroBookingForm");
+  if (!form) return;
+
+  const quoteBtn = document.getElementById("heroBookingQuote");
+  quoteBtn?.addEventListener("click", () => window.openQuoteModal?.());
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+
+    const pickup = (fd.get("pickup") || "").toString().trim();
+    const dropoff = (fd.get("dropoff") || "").toString().trim();
+    const startDate = (fd.get("start_date") || "").toString().trim();
+    const endDate = (fd.get("end_date") || "").toString().trim();
+    const service = (fd.get("service") || "").toString().trim();
+    const vehicle = (fd.get("vehicle") || "").toString().trim();
+    const notes = (fd.get("notes") || "").toString().trim();
+
+    const lines = [
+      "Hello Kechas Agencies, I’d like to book a car:",
+      "",
+      `• Service: ${service || "—"}`,
+      `• Vehicle: ${vehicle || "Any suitable"}`,
+      `• Pick-up: ${pickup || "—"}`,
+      `• Drop-off: ${dropoff || "Same as pick-up"}`,
+      `• Dates: ${startDate || "—"} to ${endDate || "—"}`,
+      notes ? `• Notes: ${notes}` : ""
+    ].filter(Boolean);
+
+    const msg = encodeURIComponent(lines.join("\n"));
+    // Primary WhatsApp number (update if needed)
+    const phone = "254722403413";
+    window.open(`https://wa.me/${phone}?text=${msg}`, "_blank", "noopener");
+  });
+})();
