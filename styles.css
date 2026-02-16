@@ -418,7 +418,12 @@ footer{
 .js .reveal.show{opacity:1 !important; transform:none !important;}
 
 /* ===== Premium Glass Header (Enterprise) ===== */
-.site-header { position: sticky; top: 0; z-index: 9999; }
+.site-header { position: sticky; top: 0; z-index: 9999; margin:0; padding:0; }
+
+/* Ensure only two ribbons (topbar + menu) with no gaps */
+.topbar, .nav-glass{ margin:0; }
+.site-header{ margin:0; padding:0; }
+
 
 .topbar {
   background: linear-gradient(90deg, #0b0b0b, #161616);
@@ -462,9 +467,18 @@ footer{
 
 .nav-links{
   display:flex; align-items:center; justify-content:center;
-  gap: 22px;
+  gap: 18px;
   flex: 1;
+  flex-wrap: nowrap;
 }
+
+@media (max-width: 1180px){
+  .nav-links{ gap: 14px; }
+}
+@media (max-width: 1100px){
+  .nav-links{ flex-wrap: wrap; }
+}
+
 .nav-link{
   text-decoration:none;
   color:#0b1b3a;
