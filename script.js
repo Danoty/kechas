@@ -807,7 +807,6 @@ Details: ${data.get("q_notes") || "—"}
   document.addEventListener("DOMContentLoaded", () => {
     ensureProgressBar();
     ensureBackToTop();
-    ensureActionDock();
     ensureQuoteModal();
     setActiveNav();
     enhanceMenu();

@@ -1899,3 +1899,58 @@ body{
   .booking-form .grid2{grid-template-columns:1fr}
   .nav a.active::after, .nav a[aria-current="page"]::after{margin-top:8px}
 }
+
+
+/* === Fixes requested (ribbons, quick contact visibility, floating buttons) === */
+
+/* Header: 2 ribbons only (contact bar + menu bar). Keep logo aside so menu aligns uniformly */
+.nav-inner{ position:relative; padding-left:220px; }
+.brand{ position:absolute; left:0; top:50%; transform:translateY(-50%); }
+@media (max-width: 980px){
+  .nav-inner{ padding-left:0; }
+  .brand{ position:static; transform:none; }
+}
+
+/* Quick Contact card: visible, not white */
+.quick-contact-card{
+  background: #fff3f3;
+  border: 1px solid rgba(212,0,0,.18);
+}
+.quick-contact-card .muted{ color: rgba(0,0,0,.7); }
+
+/* Floating buttons: keep WhatsApp + Get a Quote separate (no overlap) */
+.quote-fab, .whatsapp-fab{
+  position:fixed;
+  bottom:18px;
+  z-index:9999;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 16px;
+  border-radius:999px;
+  font-weight:800;
+  box-shadow:0 16px 30px rgba(0,0,0,.18);
+  text-decoration:none;
+  border:0;
+  cursor:pointer;
+}
+.quote-fab{
+  right:18px;
+  background:#d40000;
+  color:#fff;
+}
+.quote-fab:hover{ filter:brightness(1.05); }
+
+.whatsapp-fab{
+  left:18px;
+  background:#25D366;
+  color:#fff;
+}
+.whatsapp-fab:hover{ filter:brightness(1.05); }
+
+@media (max-width: 480px){
+  .quote-fab, .whatsapp-fab{ padding:10px 12px; font-weight:750; }
+}
+
+/* If any legacy .fab rules exist, don't let them affect new buttons */
+.fab{ z-index: 9998; }
