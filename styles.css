@@ -1954,7 +1954,7 @@ body{
 .quote-fab:hover{ filter:brightness(1.05); }
 
 .whatsapp-fab{
-  left:18px;
+  right:18px;
   background:#25D366;
   color:#fff;
 }
@@ -1991,3 +1991,47 @@ body { padding-top: 0 !important; }
 
 /* Remove any legacy quote floating button (in case cache) */
 .quote-fab{ display:none !important; }
+
+/* === Fixes: brand text visibility + hero card readability + sizing === */
+.nav-glass .brand-name,
+.nav-glass .brand-sub{ color:#ffffff !important; opacity:.98; }
+.nav-glass .brand-sub{ opacity:.82; }
+
+.hero .kpi .card,
+.hero .kpi .card *{
+  color:#0b1b3a !important;
+}
+.hero .kpi .card{
+  background: rgba(255,255,255,.88) !important;
+  padding: 14px 14px !important;
+}
+.hero .kpi .card strong{ font-size: .98rem !important; }
+.hero .kpi .card .muted{ font-size: .9rem !important; }
+
+.hero .quick-contact-card{
+  max-width: 560px;
+  justify-self: end;
+}
+@media (max-width: 900px){
+  .hero .quick-contact-card{ max-width: none; justify-self: stretch; }
+}
+
+/* Make filled buttons readable on gradients */
+.btn, .btn-cta, .btn-full{
+  color:#ffffff !important;
+}
+.btn-outline{
+  color:#0b1b3a !important;
+}
+
+/* Ensure text on light cards is dark and readable globally */
+.card, .service-card, .fleet-card, .pricing-card, .blog-card, .panel{
+  color:#0b1b3a;
+}
+.card .muted, .panel .muted{ color: rgba(11,27,58,.75); }
+
+/* Reduce oversized hero text on small screens */
+@media (max-width: 520px){
+  .hero h1{ font-size: clamp(1.9rem, 7vw, 2.4rem) !important; }
+  .hero .lead{ font-size: 1rem !important; }
+}
